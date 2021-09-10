@@ -10,9 +10,22 @@ promise.then(response => {
         return;
     }
     response.json().then(data => {
+        console.log(data);
         let candidates = data.data.races[0].candidates;
-        console.log(candidates);
-        // console.log(data.data.races[0].candidates, typeof data);
+        let output = '<h2 class="candidate-title>Candidates"></h2>';
+
+        candidates.forEach(element => {
+            console.log(element);
+            output += `
+            <ul>
+                <li>${element.name_display + element.percent_display + "%" + element.absentee_votes + element.absentee_percent}</li>
+
+            </ul>
+            `
+        })
+        console.log(output);
+        document.getElementById('main').innerHTML = output
+        console.log(candidates)
     }).catch(error => {
         console.log(error.message);
     })

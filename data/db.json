@@ -1,0 +1,47 @@
+{
+    "candidates": [{
+            "candidate_id": "biden-1036",
+            "candidate_key": "bidenj",
+            "first_name": "Joseph R.",
+            "last_name": "Biden",
+            "order": 4,
+            "name_display": "Joseph R. Biden Jr.",
+            "party_id": "democrat",
+            "incumbent": false,
+            "runoff": false,
+            "winner": true,
+            "votes": 3459923,
+            "percent": 50,
+            "percent_display": "50.0",
+            "electoral_votes": 20,
+            "absentee_votes": 996482,
+            "absentee_percent": 78.4,
+            "img_url": "https://static01.nyt.com/elections-assets/2020/assets/images/candidates/bidenj.png",
+            "has_image": true,
+            "link": "https://www.nytimes.com/interactive/2020/us/elections/joe-biden.html",
+            "pronoun": "he"
+        },
+        {
+            "candidate_id": "trump-8639",
+            "candidate_key": "trumpd",
+            "first_name": "Donald J.",
+            "last_name": "Trump",
+            "order": 3,
+            "name_display": "Donald J. Trump",
+            "party_id": "republican",
+            "incumbent": true,
+            "runoff": false,
+            "winner": false,
+            "votes": 3378263,
+            "percent": 48.8,
+            "percent_display": "48.8",
+            "electoral_votes": 0,
+            "absentee_votes": 263003,
+            "absentee_percent": 20.7,
+            "img_url": "https://static01.nyt.com/elections-assets/2020/assets/images/candidates/trumpd.png",
+            "has_image": true,
+            "link": "https://www.nytimes.com/interactive/2020/us/elections/donald-trump.html",
+            "pronoun": "he"
+        }
+    ]
+}
