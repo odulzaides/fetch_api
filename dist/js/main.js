@@ -1,6 +1,13 @@
-// let promise = fetch("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/race-page/pennsylvania/president.json")
+import * as states from './data/states.js'
+
+const statesList = states.states;
+
+statesList.forEach(element => {
+        console.log(element);
+    })
+    // selected state to search for 
 var searchState;
-// console.log(searchState);
+
 document.getElementById('search').addEventListener('click',
         function(e) {
             e.preventDefault();
