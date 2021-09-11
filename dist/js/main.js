@@ -4,8 +4,10 @@ const statesList = states.states;
 
 let options = '<option><i> choose a state to lookup...</i></option>'
 statesList.forEach(element => {
-        console.log("shoutout", element)
-        options += `<option value=${element}>${element}</option>`
+
+        // let value = element.split(" ").join("-").toLowerCase;
+        console.log(element);
+        options += `<option value=${element.split(" ").join("-").toLowerCase()}>${element}</option>`
 
         document.getElementById('statesList').innerHTML = options;
     })
