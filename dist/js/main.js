@@ -1,32 +1,48 @@
-let promise = fetch("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/race-page/pennsylvania/president.json")
+// let promise = fetch("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/race-page/pennsylvania/president.json")
+var searchState;
+// console.log(searchState);
+document.getElementById('search').addEventListener('click',
+        function(e) {
+            e.preventDefault();
+            searchState = document.getElementById('state').value;
 
-promise.then(response => {
-    if (response.status !== 200) {
-        let data = response.status;
+            // setup url to search a state
+            let dataSearch = `https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/race-page/${searchState}/president.json`
+            console.log(dataSearch);
+            let promise = fetch(dataSearch);
 
-        console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
+            promise.then(response => {
+                if (response.status !== 200) {
+                    let data = response.status;
 
-        return;
-    }
-    response.json().then(data => {
-        console.log(data);
-        let candidates = data.data.races[0].candidates;
-        let output = '<h2 class="candidate-title>Candidates"></h2>';
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
 
-        candidates.forEach(element => {
-            console.log(element);
-            output += `
-            <ul>
-                <li>${element.name_display + element.percent_display + "%" + element.absentee_votes + element.absentee_percent}</li>
+                    return;
+                }
+                response.json().then(data => {
+                    // console.log(data);
+                    let candidates = data.data.races[0].candidates;
+                    let output = '<th>Candidate</th><th>%</th><th>Absentee Votes</th><th>Absentee  Percent</th>';
 
-            </ul>
-            `
-        })
-        console.log(output);
-        document.getElementById('main').innerHTML = output
-        console.log(candidates)
-    }).catch(error => {
-        console.log(error.message);
-    })
-});
+                    candidates.forEach(element => {
+                            // console.log(element);
+                            output += `                
+                        <tr>
+                            <td>${element.name_display}</td>
+                            <td>${element.percent_display}%</td>   
+                            <td>${element.absentee_votes}</td> 
+                            <td>${element.absentee_percent}</td>
+                        </tr>
+                    `
+                        })
+                        // console.log(output);
+                    document.getElementById('main').innerHTML = output
+                        // console.log(candidates)
+                }).catch(error => {
+                    console.log(error.message);
+                })
+            });
+        }
+    )
+    // alert("HELLO" + searchState);
