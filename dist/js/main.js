@@ -1,7 +1,9 @@
 import * as states from './data/states.js'
 
+// create array containing States' names for dropdown list
 const statesList = states.states;
 
+// Populate the States dropdown list.
 let options = '<option><i> choose a state to lookup...</i></option>'
 statesList.forEach(element => {
 
@@ -14,6 +16,7 @@ statesList.forEach(element => {
     // selected state to search for 
 var searchState;
 
+// Fetch data based on selection
 document.getElementById('search').addEventListener('click',
         function(e) {
             e.preventDefault();
