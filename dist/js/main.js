@@ -2,8 +2,12 @@ import * as states from './data/states.js'
 
 const statesList = states.states;
 
+let options = '<option><i> choose a state to lookup...</i></option>'
 statesList.forEach(element => {
-        console.log(element);
+        console.log("shoutout", element)
+        options += `<option value=${element}>${element}</option>`
+
+        document.getElementById('statesList').innerHTML = options;
     })
     // selected state to search for 
 var searchState;
