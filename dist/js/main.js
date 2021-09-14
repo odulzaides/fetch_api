@@ -42,7 +42,8 @@ document.getElementById('statesList').addEventListener('click',
             response.json().then(data => {
                 // console.log(data);
                 let candidates = data.data.races[0].candidates;
-                let output = '<th>Candidate</th><th>%</th><th>Absentee Votes</th><th>Absentee  Percent</th>';
+                console.log(candidates)
+                let output = '<th>Candidate</th><th>%</th><th>Votes</th><th>Absentee Votes</th><th>Absentee  Percent</th>';
 
                 candidates.forEach(element => {
                         // console.log(element);
@@ -50,6 +51,7 @@ document.getElementById('statesList').addEventListener('click',
                         <tr>
                             <td>${element.name_display}</td>
                             <td>${element.percent_display}%</td>   
+                            <td>${element.votes}</td>   
                             <td>${element.absentee_votes}</td> 
                             <td>${element.absentee_percent}</td>
                         </tr>
