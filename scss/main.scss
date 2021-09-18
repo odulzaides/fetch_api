@@ -5,19 +5,28 @@ body,
     padding: 0;
 }
 
-#main {
-    margin: 0 auto;
-    padding: 15%;
+// #main {
+//     margin: 0 auto;
+//     padding: 15%;
+// }
+// table {
+//     margin: 2rem;
+// }
+// td {
+//     padding: .5rem;
+// }
+td>img {
+    width: 100px;
+    margin-right: 0.4rem;
 }
 
-table {
-    width: 20%;
-}
-
-td {
-    padding: .5rem;
-}
-
-td:first-child {
-    width: auto;
-}
+// td:first-child {
+//     width: 100px;
+//     padding: 0;
+// }
+// .table-dark {
+//     background: mediumblue
+// }
+// .thead {
+//     background: lightcoral;
+// }

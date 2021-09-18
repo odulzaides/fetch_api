@@ -8,7 +8,7 @@ let options = '<option><i> choose a state to lookup...</i></option>'
 statesList.forEach(element => {
 
         // let value = element.split(" ").join("-").toLowerCase;
-        console.log(element);
+        // console.log(element);
         options += `<option value=${element.split(" ").join("-").toLowerCase()}>${element}</option>`
 
         document.getElementById('statesList').innerHTML = options;
@@ -43,19 +43,37 @@ document.getElementById('statesList').addEventListener('click',
                 // console.log(data);
                 let candidates = data.data.races[0].candidates;
                 console.log(candidates)
-                let output = '<th>Candidate</th><th>%</th><th>Votes</th><th>Absentee Votes</th><th>Absentee  Percent</th>';
+                let output = '<thead class="thead"><th></th><th>Candidate</th><th>%</th><th>Votes</th><th>Absentee Votes</th><th>Absentee  Percent</th><th>Electoral Votes</td></thead>';
 
                 candidates.forEach(element => {
-                        // console.log(element);
-                        output += `                
-                        <tr>
-                            <td>${element.name_display}</td>
+                        console.log(element);
+
+                        if (element.electoral_votes > 0) {
+
+                            output += `
+                        <tr style="background:green">
+                        <td><img src="${element.img_url}"/></td>
+                            <td >${element.name_display} </td>
                             <td>${element.percent_display}%</td>   
                             <td>${element.votes}</td>   
                             <td>${element.absentee_votes}</td> 
                             <td>${element.absentee_percent}</td>
+                            <td>${element.electoral_votes}</td>
                         </tr>
-                    `
+                        `
+                        } else {
+
+                            output += `                
+                            <tr>
+                            <td><img src="${element.img_url}"/></td>
+                                <td>${element.name_display}</td>
+                                <td>${element.percent_display}%</td>   
+                                <td>${element.votes}</td>   
+                                <td>${element.absentee_votes}</td> 
+                                <td>${element.absentee_percent}</td>
+                            </tr>
+                        `
+                        }
                     })
                     // console.log(output);
                 document.getElementById('main').innerHTML = output
